@@ -2,7 +2,9 @@ defmodule EncodedStringAnalyzerWeb.ErrorJSONTest do
   use EncodedStringAnalyzerWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert EncodedStringAnalyzerWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert EncodedStringAnalyzerWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do
