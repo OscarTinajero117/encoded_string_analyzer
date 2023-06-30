@@ -1,5 +1,4 @@
 defmodule EncodedStringAnalyzer.Analyzer do
-
   def analyze(string) do
     case string do
       nil -> {:error, "Invalid encoded string, Nil"}
@@ -25,26 +24,54 @@ defmodule EncodedStringAnalyzer.Analyzer do
 
   defp analyze_list([first, last]) do
     case {check_type_error(first, 2), check_type_error(last, 2)} do
-      {{:num, _}, {:num, _}} -> {:error, "Invalid encoded string, Two or more IDs"}
-      {{:str, ""}, {:str, ""}} -> {:error, "Invalid encoded string, only zeros"}
-      {{:str, _}, {:str, _}} -> {:error, "Invalid encoded string, ID is missing"}
-      {{:num, _}, {:str, ""}} -> {:error, "Invalid encoded string, First Name and Last Name are missing"}
-      {{:num, value_first}, {:str, value_last}} -> {:ok, %{first_name: value_last, last_name: "", id: value_first}}
-      {{:str, ""}, {:num, _}} -> {:error, "Invalid encoded string, First Name and Last Name are missing"}
-      {{:str, value_first}, {:num, value_last}} -> {:ok, %{first_name: value_first, last_name: "", id: value_last}}
+      {{:num, _}, {:num, _}} ->
+        {:error, "Invalid encoded string, Two or more IDs"}
+
+      {{:str, ""}, {:str, ""}} ->
+        {:error, "Invalid encoded string, only zeros"}
+
+      {{:str, _}, {:str, _}} ->
+        {:error, "Invalid encoded string, ID is missing"}
+
+      {{:num, _}, {:str, ""}} ->
+        {:error, "Invalid encoded string, First Name and Last Name are missing"}
+
+      {{:num, value_first}, {:str, value_last}} ->
+        {:ok, %{first_name: value_last, last_name: "", id: value_first}}
+
+      {{:str, ""}, {:num, _}} ->
+        {:error, "Invalid encoded string, First Name and Last Name are missing"}
+
+      {{:str, value_first}, {:num, value_last}} ->
+        {:ok, %{first_name: value_first, last_name: "", id: value_last}}
     end
   end
 
   defp analyze_list([first, middle, last]) do
     case {check_type_error(first, 3), check_type_error(middle, 3), check_type_error(last, 3)} do
-      {{:num, _}, {:num, _}, {:num, _}} -> {:error, "Invalid encoded string, Two or more IDs"}
-      {{:num, _}, {:num, _}, {:str, _}} -> {:error, "Invalid encoded string, Two or more IDs"}
-      {{:num, _}, {:str, _}, {:num, _}} -> {:error, "Invalid encoded string, Two or more IDs"}
-      {{:str, _}, {:num, _}, {:num, _}} -> {:error, "Invalid encoded string, Two or more IDs"}
-      {{:str, _}, {:num, _}, {:str, _}} -> {:ok, %{first_name: first, last_name: last, id: middle}}
-      {{:str, _}, {:str, _}, {:num, _}} -> {:ok, %{first_name: first, last_name: middle, id: last}}
-      {{:num, _}, {:str, _}, {:str, _}} -> {:ok, %{first_name: middle, last_name: last, id: first}}
-      {{:str, _}, {:str, _}, {:str, _}} -> {:error, "Invalid encoded string, ID is missing"}
+      {{:num, _}, {:num, _}, {:num, _}} ->
+        {:error, "Invalid encoded string, Two or more IDs"}
+
+      {{:num, _}, {:num, _}, {:str, _}} ->
+        {:error, "Invalid encoded string, Two or more IDs"}
+
+      {{:num, _}, {:str, _}, {:num, _}} ->
+        {:error, "Invalid encoded string, Two or more IDs"}
+
+      {{:str, _}, {:num, _}, {:num, _}} ->
+        {:error, "Invalid encoded string, Two or more IDs"}
+
+      {{:str, _}, {:num, _}, {:str, _}} ->
+        {:ok, %{first_name: first, last_name: last, id: middle}}
+
+      {{:str, _}, {:str, _}, {:num, _}} ->
+        {:ok, %{first_name: first, last_name: middle, id: last}}
+
+      {{:num, _}, {:str, _}, {:str, _}} ->
+        {:ok, %{first_name: middle, last_name: last, id: first}}
+
+      {{:str, _}, {:str, _}, {:str, _}} ->
+        {:error, "Invalid encoded string, ID is missing"}
     end
   end
 
@@ -68,7 +95,8 @@ defmodule EncodedStringAnalyzer.Analyzer do
     case Integer.parse(string) do
       :error ->
         false
-        _ ->
+
+      _ ->
         true
     end
   end
