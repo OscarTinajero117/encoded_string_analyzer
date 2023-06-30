@@ -51,7 +51,7 @@ defmodule EncodedStringAnalyzerWeb.EncodedLive.Index do
         {:noreply, assign(socket, message: message, response: response_json(response))}
 
       {:error, error} ->
-        {:noreply, assign(socket, message: message, response: error, )}
+        {:noreply, assign(socket, message: message, response: error)}
     end
   end
 
