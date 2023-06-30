@@ -24,7 +24,7 @@ config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :encoded_string_analyzer, EncodedStringAnalyzer.Mailer, adapter: Swoosh.Adapters.Local
+# config :encoded_string_analyzer, EncodedStringAnalyzer.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
