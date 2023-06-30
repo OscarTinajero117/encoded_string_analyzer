@@ -18,6 +18,8 @@ defmodule EncodedStringAnalyzerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/encoded", EncodedLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
