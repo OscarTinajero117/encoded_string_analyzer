@@ -2,8 +2,8 @@ defmodule EncodedStringAnalyzerWeb.EncodedLive.Index do
   use EncodedStringAnalyzerWeb, :live_view
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, assign(socket, :encoded, "")}
+  def mount(%{"message" => message}, _session, socket) do
+    {:ok, assign(socket, :message, message)}
   end
 
   @impl true
