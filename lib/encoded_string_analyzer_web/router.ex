@@ -19,7 +19,7 @@ defmodule EncodedStringAnalyzerWeb.Router do
 
     get "/", PageController, :home
 
-    live "/encoded/:message", EncodedLive.Index, :index
+    live "/encoded/", EncodedLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
