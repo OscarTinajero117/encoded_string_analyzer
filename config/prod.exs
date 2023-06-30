@@ -6,11 +6,11 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
-  url: [host: System.get_env("RENDER_EXTERNAL_HOSTNAME") || "localhost", port: 80],
+  url: [host: System.get_env("RENDER_EXTERNAL_HOSTNAME") || "https://encoded-string-analyzer.onrender.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Configures Swoosh API Client
-config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: EncodedStringAnalyzer.Finch
+# config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: EncodedStringAnalyzer.Finch
 
 # Do not print debug messages in production
 config :logger, level: :info
