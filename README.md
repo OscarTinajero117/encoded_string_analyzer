@@ -1,4 +1,6 @@
-# EncodedStringAnalyzer
+# Encoded String Analyzer
+
+Site: https://encoded-string-analyzer.onrender.com
 
 To start your Phoenix server:
 
