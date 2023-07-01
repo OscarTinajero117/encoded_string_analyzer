@@ -33,7 +33,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "localhost"
+  host = "https://encoded-string-analyzer.onrender.com" #System.get_env("PHX_HOST") || "localhost"
   port = String.to_integer(System.get_env("PORT") || "80")
 
   config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
