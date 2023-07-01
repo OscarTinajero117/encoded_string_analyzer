@@ -5,7 +5,7 @@ defmodule EncodedStringAnalyzer.MixProject do
     [
       app: :encoded_string_analyzer,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -46,6 +46,7 @@ defmodule EncodedStringAnalyzer.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
+      {:hackney, "~> 1.9"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end
