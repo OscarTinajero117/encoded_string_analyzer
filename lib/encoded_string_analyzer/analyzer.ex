@@ -96,8 +96,12 @@ defmodule EncodedStringAnalyzer.Analyzer do
       :error ->
         false
 
-      _ ->
-        true
+     {_, rest}->
+        if rest == "" do
+          true
+        else
+          false
+        end
     end
   end
 end
