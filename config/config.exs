@@ -9,7 +9,7 @@ import Config
 
 # Configures the endpoint
 config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
-  url: [host: "https://encoded-string-analyzer.onrender.com"],
+  url: [host: "localhost"],
   render_errors: [
     formats: [html: EncodedStringAnalyzerWeb.ErrorHTML, json: EncodedStringAnalyzerWeb.ErrorJSON],
     layout: false
