@@ -9,7 +9,8 @@ import Config
 
 # Configures the endpoint
 config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
-  url: [host: "localhost"],
+  http: [port: System.get_env("PORT") || 80],
+  url: [scheme: "https", host: "https://encoded-string-analyzer.onrender.com", port: 80],
   render_errors: [
     formats: [html: EncodedStringAnalyzerWeb.ErrorHTML, json: EncodedStringAnalyzerWeb.ErrorJSON],
     layout: false
