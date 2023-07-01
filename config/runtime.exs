@@ -38,6 +38,7 @@ if config_env() == :prod do
 
   config :encoded_string_analyzer, EncodedStringAnalyzerWeb.Endpoint,
     url: [host: host, port: 80, scheme: "https"],
+    check_origin: ["https://encoded-string-analyzer.onrender.com"],
     http: [
       # Enable IPv6 and bind on all interfaces.
       # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
